@@ -1,0 +1,8 @@
+<div>
+  <h1 class="font-bold text-2xl my-1">Editing Task</h1>
+
+  <%= turbo_frame_tag "task_#{@task.id}" do%>
+    <%= render "form", task: @task %>
+    <%= link_to "Never Mind", tasks_path, class: "bg-gray-200 py-2 px-3" %>
+  <%end%>
+</div>

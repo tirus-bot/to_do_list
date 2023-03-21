@@ -1,0 +1,23 @@
+<%= turbo_frame_tag "task_#{task.id}" do%>
+  <div class="my-1 flex items-center">
+    <%= form_with model: task, class:"text-lg my-3 w-72" do |form| %>
+      <%= form.check_box :completed,
+                          data: {
+                          id: task.id,
+                          action: "tasks#toggle"
+                        },
+                        class: "mr-2 bg-gray-50 
+                        border-gray-300 h-5 w-5 rounded-xl checked:bg-green-500" %>
+      <%= task.title %>
+      <% end %>
+      
+    
+      <%= link_to "Edit", edit_task_path(task),
+                class: "bg-gray-200 py-2 px-3"
+      %>      
+      <%= button_to "Delete", task_path(task),
+                  method: :delete,
+                  class: "btn bg-red-200 py-2 px-3 ml-2" %>
+      
+  </div>
+<%end%>
